@@ -54,7 +54,7 @@ class LinkedList {
       if (head) {
         this.head = head.next;
       } else {
-        this.tail = this.head = null
+        this.tail = this.head = null;
       }
       this.length--;
       return head.value;
@@ -65,7 +65,9 @@ class LinkedList {
     if (!excise) return null;
     node.next = excise.next;
 
-    if (node.next && !node.next.next) { this.tail = node.next };
+    if (node.next && !node.next.next) {
+      this.tail = node.next;
+    }
 
     this.length--;
     return excise.value;
@@ -79,15 +81,15 @@ class Node {
   }
 }
 
-  const range = length => Array.apply(null, { length: length }).map(Number.call, Number);
-  const abcRange = length => range(length).map(num => String.fromCharCode(97 + num));
+const range = length =>
+  Array.apply(null, { length: length }).map(Number.call, Number);
+const abcRange = length =>
+  range(length).map(num => String.fromCharCode(97 + num));
 
 const list = new LinkedList();
 abcRange(4).map(character => {
-  list.push(character)
-  console.log(list, '+++')
-})
+  list.push(character);
+  console.log(list, "+++");
+});
 
 // console.log(list);
-
-
